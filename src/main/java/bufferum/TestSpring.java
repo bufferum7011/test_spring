@@ -18,17 +18,25 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         // Dependency Injection - DI - Внедрение зависимости
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
-        musicPlayer.playMusic();
+        firstMusicPlayer.playMusic();
 
         // Вот что делает спринг за кулисам с сеттером
         // MusicPlayer musicPlayer2 = new MusicPlayer();
         // musicPlayer2.setMusic(music);
 
 
-        System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());
+        System.out.println(firstMusicPlayer == secondMusicPlayer);
+
+    
+        System.out.println(firstMusicPlayer.getName());
+        System.out.println(firstMusicPlayer.getVolume());
+
+        secondMusicPlayer.setVolume(100);
+        System.out.println(secondMusicPlayer.getName());
+        System.out.println(secondMusicPlayer.getVolume());
 
         context.close();
     }

@@ -15,10 +15,9 @@
     </bean>
 
     <bean id="musicPlayer"
-        class="bufferum.MusicPlayer">
+        class="bufferum.MusicPlayer"
+        scope="prototype">
         <property name="music" ref="musicBean"/>
-        <!-- где name там как бы сеттер Просто без set -->
-        
         <property name="name" value="Some text"/>
         <property name="volume" value="40"/>
     </bean>
