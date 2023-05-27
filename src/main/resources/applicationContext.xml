@@ -7,13 +7,20 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
     
+    <!-- Подключение файла с свойствами -->
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
     <bean id="musicBean"
         class="bufferum.ClassicalMusic">
     </bean>
 
     <bean id="musicPlayer"
         class="bufferum.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="music" ref="musicBean"/>
+        <!-- где name там как бы сеттер Просто без set -->
+        
+        <property name="name" value="Some text"/>
+        <property name="volume" value="40"/>
     </bean>
 
 </beans>
