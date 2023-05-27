@@ -8,8 +8,12 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
     
     <bean id="musicBean"
-        class="bufferum.RockMusic">
-        <!-- <constructor-arg value="Жестьь"/> -->
+        class="bufferum.ClassicalMusic">
+    </bean>
+
+    <bean id="musicPlayer"
+        class="bufferum.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
     </bean>
 
 </beans>
