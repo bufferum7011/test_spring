@@ -6,10 +6,10 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-
-    <bean id="testBean"
-        class="bufferum.TestBean">
-        <constructor-arg value="Жестььь"/>
+    
+    <bean id="musicBean"
+        class="bufferum.RockMusic">
+        <!-- <constructor-arg value="Жестьь"/> -->
     </bean>
 
 </beans>
