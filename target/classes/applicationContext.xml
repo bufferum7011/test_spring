@@ -11,7 +11,14 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-        class="bufferum.ClassicalMusic">
+        class="bufferum.ClassicalMusic"
+        init-method="doMyInit"
+        destroy-method="doMyDestroy"
+        factory-method="getClassicalMusic">
+
+        <!-- При фабричном методе по дефолту стоит scope=singleton -->
+        <!-- По этому бин создастся один раз -->
+
     </bean>
 
     <bean id="musicPlayer"
