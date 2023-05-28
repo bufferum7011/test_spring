@@ -1,5 +1,11 @@
 package bufferum;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
+@Component
+@Scope("prototype")
 public class ClassicalMusic implements Music {
 
     @Override
@@ -7,11 +13,13 @@ public class ClassicalMusic implements Music {
         return "...КЛАССИЧЕСКАЯ МУЗЫКА...";
     }
 
+    @PostConstruct
     @Override
     public void doMyInit() {
         System.out.println("=================== Init - " + getClass().getName());
     }
 
+    @PreDestroy
     @Override
     public void doMyDestroy() {
         System.out.println("=================== Destroy - " + getClass().getName());
@@ -19,7 +27,7 @@ public class ClassicalMusic implements Music {
 
 
     // Фабричный метод начало
-    private ClassicalMusic() {}
+    public ClassicalMusic() {}
 
     public static ClassicalMusic getClassicalMusic() {
         return new ClassicalMusic();

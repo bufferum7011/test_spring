@@ -1,7 +1,9 @@
 package bufferum;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 public interface Music {
     public String getSong();
-    public void doMyInit();
-    public void doMyDestroy();
+    @PostConstruct public void doMyInit();
+    @PreDestroy public void doMyDestroy();
 }
